@@ -140,7 +140,7 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
 
 	dropZoneElement.addEventListener("drop", (e) => {
 		e.preventDefault();
-		
+		parser = new DOMParser();
 		var xmlData = parser.parseFromString(e.dataTransfer.getData("text/plain"), "text/xml")
 		makeMulticam(xmlData)
 
