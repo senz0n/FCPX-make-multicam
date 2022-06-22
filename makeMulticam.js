@@ -1,3 +1,7 @@
+if (navigator.appVersion.indexOf("Mac") == -1) {
+	document.getElementsByClassName("drop-zone__prompt")[0].innerHTML = 'This will only work on macOS'
+}
+
 function download(filename, text) {
 	var element = document.createElement('a');
 	element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
@@ -112,7 +116,7 @@ function makeMulticam(xmlData) {
 
 	xmlDataString = new XMLSerializer().serializeToString(xmlData.documentElement);
 	console.log(xmlDataString)
-	download('multicam.fcpxml', "<!DOCTYPE fcpxml>" + xmlDataString)
+	download('multicam.fcpxml', xmlDataString)
 
 
 
@@ -121,10 +125,6 @@ function makeMulticam(xmlData) {
 
 document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
 	const dropZoneElement = inputElement.closest(".drop-zone");
-
-	dropZoneElement.addEventListener("click", (e) => {
-		inputElement.click();
-	});
 
 
 	dropZoneElement.addEventListener("dragover", (e) => {
@@ -148,8 +148,6 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
 		// if (e.dataTransfer.files.length) {
 		// 	inputElement.files = e.dataTransfer.files;
 		// 	var file = e.dataTransfer.files[0]
-
-		// 	parser = new DOMParser();
 		// 	let reader = new FileReader();
 		// 	reader.readAsText(file);
 		// 	reader.onload = function () {

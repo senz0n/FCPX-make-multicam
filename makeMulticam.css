@@ -7,13 +7,12 @@
 	
 }
 body {
-	/* centre everythong */
 	margin: 0;
 	padding: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	
+
 }
 .notes {
 	width:100%;
@@ -29,10 +28,8 @@ body {
 	margin-right: 6px;
 	background-color: transparent;
 	border: 2px solid #ddd;
-	/* border-radius: 8px; */
 	color: #fff;
 	text-decoration: none;
-	cursor: pointer;
 	max-width: 200px;
 	align-items: center;
 	justify-content: center;
@@ -43,22 +40,10 @@ body {
   }
   
   .drop-zone--over {
-	border: 2px solid #FF6E30;
+	border: 2px solid violet;
   }
 
   .drop-zone__input {
 	display: none !important;
 
   }
-  /* button, .btn {
-	min-width: 120px;
-	padding: 10px 16px;
-	margin-right: 6px;
-	background-color: transparent;
-	border: 2px solid #ddd;
-	border-radius: 8px;
-	color: #fff;
-	text-decoration: none;
-	cursor: pointer;
-	transition: all 0.2s ease;
-} */
