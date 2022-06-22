@@ -1,0 +1,54 @@
+
+* {
+	box-sizing: border-box;
+	font-family: 'Poppins', Arial, sans-serif;
+	color: #DDDDDD;
+	background-color: black;
+}
+.notes {
+	width:100%;
+	display: none;
+}
+
+.drop-zone {
+	font-family: Open Sans Light, Helvetica, sans-serif;
+	display: inline-flex;
+	min-height: 300px;
+	min-width: 400px;
+	padding: 10px 16px;
+	margin-right: 6px;
+	background-color: transparent;
+	border: 2px solid #ddd;
+	/* border-radius: 8px; */
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+	max-width: 200px;
+	align-items: center;
+	justify-content: center;
+  }
+
+  .drop-zone__prompt {
+	text-align: center;
+  }
+  
+  .drop-zone--over {
+	border: 2px solid #FF6E30;
+  }
+
+  .drop-zone__input {
+	display: none !important;
+
+  }
+  /* button, .btn {
+	min-width: 120px;
+	padding: 10px 16px;
+	margin-right: 6px;
+	background-color: transparent;
+	border: 2px solid #ddd;
+	border-radius: 8px;
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 0.2s ease;
+} */
