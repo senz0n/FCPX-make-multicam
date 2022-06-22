@@ -4,6 +4,16 @@
 	font-family: 'Poppins', Arial, sans-serif;
 	color: #DDDDDD;
 	background-color: black;
+	
+}
+body {
+	/* centre everythong */
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
 }
 .notes {
 	width:100%;
