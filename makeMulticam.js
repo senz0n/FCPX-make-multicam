@@ -31,7 +31,7 @@ function makeMulticam(xmlData) {
 		assetClipList = []
 		for (let j = 0; j < spine.children.length; j++) {
 			var assetClip = spine.children[j]
-			if (assetClip.tagName == 'assetClip') {
+			if (assetClip.tagName == 'asset-clip') {
 				assetClipList.push(assetClip)
 				var ref = assetClip.getAttribute('ref')
 				// find asset in resources and add multicam
