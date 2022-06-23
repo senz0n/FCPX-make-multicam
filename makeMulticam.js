@@ -81,13 +81,14 @@ function makeMulticam(xmlData) {
 						mcClip.setAttribute('name', assetClip.getAttribute('name'))
 						mcClip.setAttribute('duration', assetClip.getAttribute('duration'))
 						mcClip.setAttribute('start', assetClip.getAttribute('start'))
-						spine.appendChild(mcClip)
+						spine.insertBefore(mcClip, spine.children[0]);
+
 						mcClip.innerHTML = assetClip.innerHTML
 						// add mc-source to mc-clip
 						var mcSource = xmlData.createElement('mc-source')
 						mcSource.setAttribute('angleID', asset.getAttribute('name') + asset.getAttribute('id') + 'A')
 						mcSource.setAttribute('srcEnable', "all")
-						mcClip.appendChild(mcSource)
+						mcClip.insertBefore(mcSource, mcClip.children[0]);
 
 						break
 					}
