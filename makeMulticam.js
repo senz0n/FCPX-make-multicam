@@ -29,9 +29,16 @@ function makeMulticam(xmlData) {
 		var spine = xmlData.getElementsByTagName('project')[i].getElementsByTagName('spine')[0]
 		// for each clip in the project
 		assetClipList = []
+		// make list of spine children
+		var assetClips = []
 		for (let j = 0; j < spine.children.length; j++) {
-			var assetClip = spine.children[j]
-			if (assetClip.tagName == 'asset-clip') {
+			if (spine.children[j].tagName == 'asset-clip') {
+				assetClips.push(spine.children[j])
+			}
+		}
+
+		for (let j = 0; j < assetClips.length; j++) {
+			var assetClip = assetClips[j]
 				assetClipList.push(assetClip)
 				var ref = assetClip.getAttribute('ref')
 				// find asset in resources and add multicam
@@ -81,7 +88,8 @@ function makeMulticam(xmlData) {
 						mcClip.setAttribute('name', assetClip.getAttribute('name'))
 						mcClip.setAttribute('duration', assetClip.getAttribute('duration'))
 						mcClip.setAttribute('start', assetClip.getAttribute('start'))
-						spine.insertBefore(mcClip, spine.children[0]);
+						// spine.appendChild(mcClip)
+						spine.insertBefore(mcClip, assetClip);
 
 						mcClip.innerHTML = assetClip.innerHTML
 						// add mc-source to mc-clip
@@ -94,7 +102,6 @@ function makeMulticam(xmlData) {
 					}
 				}
 
-			}
 
 		}
 		for (let k = 0; k < assetClipList.length; k++) {
