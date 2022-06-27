@@ -88,7 +88,6 @@ function makeMulticam(xmlData) {
 						mcClip.setAttribute('name', assetClip.getAttribute('name'))
 						mcClip.setAttribute('duration', assetClip.getAttribute('duration'))
 						mcClip.setAttribute('start', assetClip.getAttribute('start'))
-						// spine.appendChild(mcClip)
 						spine.insertBefore(mcClip, assetClip);
 
 						mcClip.innerHTML = assetClip.innerHTML
@@ -97,6 +96,13 @@ function makeMulticam(xmlData) {
 						mcSource.setAttribute('angleID', asset.getAttribute('name') + asset.getAttribute('id') + 'A')
 						mcSource.setAttribute('srcEnable', "all")
 						mcClip.insertBefore(mcSource, mcClip.children[0]);
+
+						// if there is an element in mcClip called 'adjust-'volume', move it to the front of mcClip children
+						if (mcClip.getElementsByTagName('adjust-volume').length > 0) {
+							var adjustVolume = mcClip.getElementsByTagName('adjust-volume')[0]
+							mcClip.removeChild(adjustVolume)
+							mcClip.insertBefore(adjustVolume, mcClip.children[0])
+						}
 
 						break
 					}
