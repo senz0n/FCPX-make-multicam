@@ -160,7 +160,12 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
 			let reader = new FileReader();
 			reader.readAsText(file);
 			reader.onload = function () {
-				xmlData = parser.parseFromString(reader.result.split('<!DOCTYPE fcpxml>')[1], "text/xml")
+				// if reader.result starts with <!DOCTYPE fcpxml>, remove it
+				var text = reader.result
+				if (reader.result.startsWith('<!DOCTYPE fcpxml>')) {
+					text = reader.result.split('<!DOCTYPE fcpxml>')[1]
+				}
+				xmlData = parser.parseFromString(text, "text/xml")
 				makeMulticam(xmlData)
 			}
 		} else {
